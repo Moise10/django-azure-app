@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {# <link href="{% static "css/blog.css" %}" rel="stylesheet"> #}
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body class="">
+  <div class="flex">
+    <div class="flex-1 px-8">
+      {% block content %}
+        
+      {% endblock %}
+    </div>
+
+    <div class="bg-gray-400 w-1/5 pt-12 h-40">
+      <h2 class="pb-4">My Blog</h2>
+      <p>This is my blog</p>
+    </div>
+  </div>
+  
+  
+</body>
+</html>
