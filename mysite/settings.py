@@ -127,3 +127,12 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+
+# Email server configuration
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mbakopmoise237@gmail.com'
+EMAIL_HOST_PASSWORD = 'pebh kazh lzvu uycz'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
