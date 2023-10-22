@@ -52,6 +52,7 @@ class Post(models.Model):
         self.slug]
       )
   
+  
 
 
 class Comment(models.Model):

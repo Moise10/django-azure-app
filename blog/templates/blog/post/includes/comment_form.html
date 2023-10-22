@@ -1,0 +1,10 @@
+
+
+<h2 class="my-6 ">Add a new comment</h2>
+<form class="pb-16" action="{% url "blog:post_comment" post.id %}" method="post">
+  {{ form.as_p }}
+  {% csrf_token %}
+  <p>
+    <input class="text-white bg-blue-400 p-3 mt-4 " type="submit" value="Add comment" />
+  </p>
+</form>

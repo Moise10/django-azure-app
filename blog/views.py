@@ -62,8 +62,13 @@ def post_detail(request,year, month, day, post):
                 publish__month = month,
                 publish__day = day
                 )
+  #List of active comments for this post
+  comments = post.comments.filter(active=True)
+  #form for users to comment
+  form = CommentForm()
   return render(request, 
-  'blog/post/detail.html', {'post': post})
+  'blog/post/detail.html', {'post': post, 
+                            'form': form,            'comments': comments})
 
 
 @require_POST
