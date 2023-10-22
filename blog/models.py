@@ -3,7 +3,9 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-# Create your models here.
+from taggit.managers import TaggableManager
+
+
 
 #retrieve all posts that have a PUBLISHED status.
 class PublishedManager(models.Manager):
@@ -16,7 +18,8 @@ class Post(models.Model):
   class Status(models.TextChoices):
     DRAFT = 'DF', 'Draft'
     PUBLISHED = 'PB', 'Published'
-
+  
+  tags = TaggableManager()
   title = models.CharField(max_length=250)
   slug = models.SlugField(max_length=250 ,         unique_for_date = 'publish')
   body = models.TextField()
