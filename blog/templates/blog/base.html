@@ -1,3 +1,4 @@
+{% load blog_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -14,12 +15,37 @@
       {% endblock %}
     </div>
 
-    <div class="bg-gray-400 w-1/5 pt-12 h-40">
+    <div class="bg-gray-200 w-1/5 pt-12 px-4 max-h-min">
       <h2 class="pb-4">My Blog</h2>
-      <p>This is my blog</p>
+      <p>
+        This is my blog
+        I've written {% total_posts %} posts so far.
+      </p>
+      <p>
+        <a href="{% url "blog:post_feed" %}">
+          Subscribe to my RSS feed
+        </a>
+      </p>
+      <h3 class="text-center my-8 text-md">
+        Latest posts
+      </h3>
+      {% show_latest_posts 3 %}
+
+      <h3 class="mt-10 text-md mb-8 text-center">
+        Most commented posts
+      </h3>
+        {% get_most_commented_posts as most_commented_posts %}
+      <ul>
+      {% for post in most_commented_posts %}
+        <li class="py-1">
+          <a class="text-blue-400 " href="{{ post.get_absolute_url }}">
+            {{ post.title }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
     </div>
   </div>
-  
   
 </body>
 </html>

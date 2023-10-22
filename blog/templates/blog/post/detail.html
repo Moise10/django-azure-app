@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-
+{% load blog_tags %}
 {% block title %} {{post.title}} {% endblock title %}
 
 
@@ -8,9 +8,9 @@
   <p class="mt-2 italic text-slate-50 py-4 font-light">
     Published {{ post.publish }} by {{ post.author }}
   </p>
-  {{ post.body|linebreaks }}
+  {{ post.body|markdown }}
   <p class="text-blue-400 py-8 ">
-    <a  href="{% url "blog:post_share" post.id %}">
+    <a class="disabled:opacity-75"   href="{% url "blog:post_share" post.id %}" >
       Share this post
     </a>
   </p>
